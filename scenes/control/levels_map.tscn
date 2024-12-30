@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://clposabyt76av"]
+
+[ext_resource type="Script" path="res://scripts/control/levels_map.gd" id="1_vu1av"]
+[ext_resource type="AudioStream" uid="uid://bquutwh1h5mq0" path="res://Art/sounds/waitingroom.mp3" id="2_0cw6i"]
+[ext_resource type="Script" path="res://scripts/control/WaitingSong.gd" id="3_yc8m8"]
+[ext_resource type="Texture2D" uid="uid://foyrenfhcne1" path="res://Art/Resources/menus/fullmenumap.webp" id="4_p5prs"]
+[ext_resource type="Texture2D" uid="uid://dpupsup3kj4rm" path="res://Art/Resources/menus/btnEmpty.png" id="5_f38l2"]
+[ext_resource type="FontFile" uid="uid://c7wki63mjikbw" path="res://Art/Resources/FONT/Tiny5-Regular.ttf" id="6_uut6t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kkpf6"]
+font = ExtResource("6_uut6t")
+font_size = 25
+
+[node name="LevelsMap" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vu1av")
+
+[node name="WaitingSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0cw6i")
+bus = &"music"
+script = ExtResource("3_yc8m8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 651.0
+texture = ExtResource("4_p5prs")
+expand_mode = 2
+
+[node name="btnGoToTutorial" type="Button" parent="."]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 201.0
+offset_right = 496.0
+offset_bottom = 394.0
+flat = true
+
+[node name="btnGoToLevel1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 202.0
+offset_right = 704.0
+offset_bottom = 385.0
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+disabled = true
+
+[node name="btnGoToLevel2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 718.0
+offset_top = 199.0
+offset_right = 913.0
+offset_bottom = 390.0
+disabled = true
+
+[node name="btnGoToMainMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 12.0
+offset_right = 790.0
+offset_bottom = 160.0
+flat = true
+
+[node name="TexturebtnBack" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 21.0
+offset_right = 152.192
+offset_bottom = 85.0
+texture = ExtResource("5_f38l2")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="TexturebtnBack"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 18.0
+offset_right = 97.0
+offset_bottom = 48.0
+text = "BACK"
+label_settings = SubResource("LabelSettings_kkpf6")
+horizontal_alignment = 1
+
+[node name="btnGoToMainMenu" type="Button" parent="TexturebtnBack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="btnGoToTutorial" to="." method="_on_btn_go_to_tutorial_pressed"]
+[connection signal="pressed" from="btnGoToLevel1" to="." method="_on_btn_go_to_level_1_pressed"]
+[connection signal="pressed" from="btnGoToMainMenu" to="." method="_on_btn_go_to_main_menu_pressed"]
+[connection signal="pressed" from="TexturebtnBack/btnGoToMainMenu" to="." method="_on_btn_go_to_main_menu_pressed"]

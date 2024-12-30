@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4fwwlaaeek0q"]
+
+[ext_resource type="Script" path="res://scripts/control/menu_settings.gd" id="1_tgdme"]
+[ext_resource type="Texture2D" uid="uid://3mu2mpcoc2tx" path="res://Art/Resources/menus/windowEmpty.png" id="2_lafbk"]
+[ext_resource type="FontFile" uid="uid://c7wki63mjikbw" path="res://Art/Resources/FONT/Tiny5-Regular.ttf" id="3_ikqxs"]
+[ext_resource type="PackedScene" uid="uid://qf1r3l3jidvl" path="res://scenes/control/volume_slider.tscn" id="4_lxhqq"]
+[ext_resource type="Texture2D" uid="uid://dpupsup3kj4rm" path="res://Art/Resources/menus/btnEmpty.png" id="5_l2wu5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e0nst"]
+font = ExtResource("3_ikqxs")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[node name="MenuSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tgdme")
+
+[node name="popUpConfig" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 216.0
+offset_right = 802.0
+offset_bottom = 627.0
+texture = ExtResource("2_lafbk")
+expand_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="popUpConfig"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 99.0
+offset_right = 393.0
+offset_bottom = 272.0
+
+[node name="Label" type="Label" parent="popUpConfig/Content"]
+layout_mode = 2
+text = "General Volume"
+label_settings = SubResource("LabelSettings_e0nst")
+
+[node name="master" parent="popUpConfig/Content" instance=ExtResource("4_lxhqq")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="Label2" type="Label" parent="popUpConfig/Content"]
+layout_mode = 2
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_e0nst")
+
+[node name="music" parent="popUpConfig/Content" instance=ExtResource("4_lxhqq")]
+layout_mode = 2
+bus_name = "music"
+
+[node name="Label3" type="Label" parent="popUpConfig/Content"]
+layout_mode = 2
+text = "SFX Volume"
+label_settings = SubResource("LabelSettings_e0nst")
+
+[node name="sfx" parent="popUpConfig/Content" instance=ExtResource("4_lxhqq")]
+layout_mode = 2
+bus_name = "sfx"
+
+[node name="btnBack" type="TextureRect" parent="popUpConfig"]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 285.0
+offset_right = 393.0
+offset_bottom = 349.0
+texture = ExtResource("5_l2wu5")
+expand_mode = 3
+
+[node name="btnGoBack" type="Button" parent="popUpConfig/btnBack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ikqxs")
+theme_override_font_sizes/font_size = 25
+text = "BACK"
+flat = true
+
+[node name="btnClearStorage" type="TextureRect" parent="popUpConfig"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 285.0
+offset_right = 244.192
+offset_bottom = 349.0
+texture = ExtResource("5_l2wu5")
+expand_mode = 3
+
+[node name="btnClearStorage" type="Button" parent="popUpConfig/btnClearStorage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ikqxs")
+theme_override_font_sizes/font_size = 25
+text = "CLEAR"
+flat = true
+
+[connection signal="pressed" from="popUpConfig/btnBack/btnGoBack" to="." method="_on_btn_go_back_pressed"]
+[connection signal="pressed" from="popUpConfig/btnClearStorage/btnClearStorage" to="." method="_on_btn_clear_storage_pressed"]

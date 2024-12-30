@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b4m07jdq6jbyi"
+path="res://.godot/imported/RaySprite.aseprite-395e4d607ad753af49be235e3c871d20.res"
+
+[deps]
+
+source_file="res://Art/Player1/RaySprite.aseprite"
+dest_files=["res://.godot/imported/RaySprite.aseprite-395e4d607ad753af49be235e3c871d20.res"]
+
+[params]
+

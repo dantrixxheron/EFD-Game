@@ -1,0 +1,328 @@
+[gd_scene load_steps=22 format=3 uid="uid://c8f8v752na7r7"]
+
+[ext_resource type="Script" path="res://scripts/control/info_game.gd" id="1_xoc6j"]
+[ext_resource type="Texture2D" uid="uid://ctkfcir0qdiw5" path="res://Art/Resources/menus/gameoverAlert.png" id="2_aynpw"]
+[ext_resource type="Texture2D" uid="uid://bdo3qjeamb0ie" path="res://Art/Resources/menus/border-bar.png" id="2_hgaty"]
+[ext_resource type="Texture2D" uid="uid://b7wp4r2xj3bd6" path="res://Art/Resources/menus/border-bar - copia.png" id="3_lcomu"]
+[ext_resource type="Texture2D" uid="uid://dw01n6b2eano6" path="res://Art/Resources/menus/menuAlert.png" id="4_0s7sa"]
+[ext_resource type="Texture2D" uid="uid://bectdeobtqr18" path="res://Art/Resources/menus/btnMenu.png" id="4_dj52x"]
+[ext_resource type="Texture2D" uid="uid://3mu2mpcoc2tx" path="res://Art/Resources/menus/windowEmpty.png" id="7_by33k"]
+[ext_resource type="FontFile" uid="uid://c7wki63mjikbw" path="res://Art/Resources/FONT/Tiny5-Regular.ttf" id="8_h3ssp"]
+[ext_resource type="Texture2D" uid="uid://bibc4rasr1uxp" path="res://Art/Resources/menus/actionbtn.png" id="9_egrjq"]
+[ext_resource type="PackedScene" uid="uid://c4fwwlaaeek0q" path="res://scenes/control/menu_settings.tscn" id="10_nnaan"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p3cvg"]
+font = ExtResource("8_h3ssp")
+font_size = 40
+
+[sub_resource type="InputEventKey" id="InputEventKey_r16w2"]
+device = -1
+keycode = 80
+unicode = 112
+
+[sub_resource type="Shortcut" id="Shortcut_acmbf"]
+events = [SubResource("InputEventKey_r16w2")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wk8jk"]
+font = ExtResource("8_h3ssp")
+font_size = 31
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xs2n3"]
+font = ExtResource("8_h3ssp")
+font_size = 75
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gnkny"]
+font = ExtResource("8_h3ssp")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nnlj3"]
+font = ExtResource("8_h3ssp")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tgrs3"]
+font = ExtResource("8_h3ssp")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_prsx5"]
+font = ExtResource("8_h3ssp")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sohhj"]
+font = ExtResource("8_h3ssp")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cajg7"]
+font = ExtResource("8_h3ssp")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[node name="infoGame" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_xoc6j")
+
+[node name="Border" type="Node2D" parent="."]
+
+[node name="Border-bar4" type="Sprite2D" parent="Border"]
+position = Vector2(1131, 17.8173)
+rotation = 1.5708
+scale = Vector2(0.812728, 0.892491)
+texture = ExtResource("2_hgaty")
+
+[node name="Border-bar3" type="Sprite2D" parent="Border"]
+position = Vector2(1131, 630)
+rotation = -1.5708
+scale = Vector2(0.888779, 0.87249)
+texture = ExtResource("2_hgaty")
+flip_v = true
+
+[node name="Border-bar" type="Sprite2D" parent="Border"]
+position = Vector2(16.9999, 18)
+scale = Vector2(0.825, 0.743056)
+texture = ExtResource("2_hgaty")
+
+[node name="Border-bar2" type="Sprite2D" parent="Border"]
+position = Vector2(18, 632)
+scale = Vector2(0.785695, 0.687501)
+texture = ExtResource("2_hgaty")
+flip_v = true
+
+[node name="Border-bar-Copia3" type="Sprite2D" parent="Border"]
+position = Vector2(573.263, 27.1829)
+rotation = -3.14158
+scale = Vector2(1.77959, 0.751439)
+texture = ExtResource("3_lcomu")
+
+[node name="Border-bar-Copia4" type="Sprite2D" parent="Border"]
+position = Vector2(572.166, 624.297)
+scale = Vector2(1.78588, 0.674931)
+texture = ExtResource("3_lcomu")
+
+[node name="Border-bar-Copia5" type="Sprite2D" parent="Border"]
+position = Vector2(1129.56, 322)
+rotation = 1.5708
+scale = Vector2(0.929522, 0.84514)
+texture = ExtResource("3_lcomu")
+
+[node name="Border-bar-Copia2" type="Sprite2D" parent="Border"]
+position = Vector2(26.9921, 325.597)
+rotation = 1.5708
+scale = Vector2(0.953692, 0.724352)
+texture = ExtResource("3_lcomu")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 275.0
+offset_top = 1.0
+offset_right = 315.0
+offset_bottom = 41.0
+
+[node name="Clock" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 636.0
+offset_top = 604.0
+offset_right = 825.0
+offset_bottom = 649.0
+label_settings = SubResource("LabelSettings_p3cvg")
+horizontal_alignment = 1
+
+[node name="btnOpenMenu" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 4.375
+offset_right = 353.0
+offset_bottom = 40.375
+shortcut = SubResource("Shortcut_acmbf")
+flat = true
+
+[node name="BtnMenu" type="Sprite2D" parent="Control/btnOpenMenu"]
+position = Vector2(52, 18)
+scale = Vector2(0.214059, 0.177948)
+texture = ExtResource("4_dj52x")
+
+[node name="MenuPopUp" type="Node2D" parent="."]
+visible = false
+
+[node name="MenuAlert" type="Sprite2D" parent="MenuPopUp"]
+position = Vector2(576, 315)
+texture = ExtResource("4_0s7sa")
+
+[node name="btnResume" type="Button" parent="MenuPopUp"]
+offset_left = 462.0
+offset_top = 203.0
+offset_right = 558.0
+offset_bottom = 299.0
+flat = true
+
+[node name="btnRestart" type="Button" parent="MenuPopUp"]
+offset_left = 590.0
+offset_top = 203.0
+offset_right = 685.0
+offset_bottom = 299.0
+flat = true
+
+[node name="btnSettings" type="Button" parent="MenuPopUp"]
+offset_left = 408.0
+offset_top = 372.0
+offset_right = 507.0
+offset_bottom = 501.0
+flat = true
+
+[node name="btnSettings2" type="Button" parent="MenuPopUp"]
+offset_left = 540.0
+offset_top = 372.0
+offset_right = 639.0
+offset_bottom = 501.0
+flat = true
+
+[node name="btnGoToLevelsMap" type="Button" parent="MenuPopUp"]
+offset_left = 662.0
+offset_top = 370.0
+offset_right = 755.0
+offset_bottom = 507.0
+flat = true
+
+[node name="GameOverMenu" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="GameOverMenu"]
+offset_right = 1151.0
+offset_bottom = 648.0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+
+[node name="txtrestar" type="Label" parent="GameOverMenu"]
+offset_left = 390.0
+offset_top = 574.0
+offset_right = 771.0
+offset_bottom = 627.0
+text = "Click anywhere to restart"
+label_settings = SubResource("LabelSettings_wk8jk")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="GameoverAlert" type="Sprite2D" parent="GameOverMenu"]
+position = Vector2(568, 323)
+texture = ExtResource("2_aynpw")
+
+[node name="WinMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="WindowEmpty" type="Sprite2D" parent="WinMenu"]
+position = Vector2(581, 316)
+texture = ExtResource("7_by33k")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="WinMenu"]
+offset_left = 427.0
+offset_top = 172.0
+offset_right = 756.0
+offset_bottom = 257.0
+text = "Win!"
+label_settings = SubResource("LabelSettings_xs2n3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="WinMenu"]
+offset_left = 445.0
+offset_top = 264.0
+offset_right = 535.0
+offset_bottom = 309.0
+text = "Time:"
+label_settings = SubResource("LabelSettings_gnkny")
+
+[node name="txtTime" type="Label" parent="WinMenu"]
+offset_left = 520.0
+offset_top = 253.0
+offset_right = 631.0
+offset_bottom = 319.0
+label_settings = SubResource("LabelSettings_nnlj3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="WinMenu"]
+offset_left = 436.0
+offset_top = 309.0
+offset_right = 534.0
+offset_bottom = 360.0
+text = "Record:"
+label_settings = SubResource("LabelSettings_tgrs3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="txtRecord" type="Label" parent="WinMenu"]
+offset_left = 544.0
+offset_top = 312.0
+offset_right = 614.0
+offset_bottom = 357.0
+label_settings = SubResource("LabelSettings_prsx5")
+
+[node name="Actionbtn" type="Sprite2D" parent="WinMenu"]
+position = Vector2(590, 433)
+scale = Vector2(0.76383, 0.747525)
+texture = ExtResource("9_egrjq")
+
+[node name="Label" type="Label" parent="WinMenu/Actionbtn"]
+offset_left = -96.8802
+offset_top = 46.8212
+offset_right = -14.8802
+offset_bottom = 75.8212
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Restart"
+label_settings = SubResource("LabelSettings_sohhj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btnRestart" type="Button" parent="WinMenu/Actionbtn/Label"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -98.0
+offset_right = 87.0
+offset_bottom = 28.0
+flat = true
+
+[node name="Label2" type="Label" parent="WinMenu/Actionbtn"]
+offset_left = 51.0585
+offset_top = 46.8212
+offset_right = 95.0585
+offset_bottom = 75.8212
+text = "Exit"
+label_settings = SubResource("LabelSettings_cajg7")
+
+[node name="btnGoToLevelsMap" type="Button" parent="WinMenu/Actionbtn/Label2"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = -100.0
+offset_right = 66.0
+offset_bottom = 29.0
+flat = true
+
+[node name="MenuSettings" parent="." instance=ExtResource("10_nnaan")]
+visible = false
+offset_left = 10.0
+offset_top = -83.0
+offset_right = 10.0
+offset_bottom = -83.0
+
+[connection signal="pressed" from="Control/btnOpenMenu" to="." method="_on_btn_open_menu_pressed"]
+[connection signal="pressed" from="MenuPopUp/btnResume" to="." method="_on_btn_resume_pressed"]
+[connection signal="pressed" from="MenuPopUp/btnRestart" to="." method="_on_btn_restart_pressed"]
+[connection signal="pressed" from="MenuPopUp/btnSettings" to="." method="_on_btn_settings_pressed"]
+[connection signal="pressed" from="MenuPopUp/btnSettings2" to="." method="_on_btn_settings_pressed"]
+[connection signal="pressed" from="MenuPopUp/btnGoToLevelsMap" to="." method="_on_btn_go_to_levels_map_pressed"]
+[connection signal="pressed" from="GameOverMenu/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="WinMenu/Actionbtn/Label/btnRestart" to="." method="_on_btn_restart_pressed"]
+[connection signal="pressed" from="WinMenu/Actionbtn/Label2/btnGoToLevelsMap" to="." method="_on_btn_go_to_levels_map_pressed"]

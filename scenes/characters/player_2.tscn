@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4upamt70y32a"]
+
+[ext_resource type="Script" path="res://scripts/characters/Player2.gd" id="1_l5n4t"]
+[ext_resource type="PackedScene" uid="uid://c1uex5f4kv62g" path="res://scenes/characters/anim_sprite_2.tscn" id="2_tajp0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2a8uh"]
+radius = 5.0
+height = 18.0
+
+[node name="Player2" type="CharacterBody2D"]
+script = ExtResource("1_l5n4t")
+
+[node name="animSprite2" parent="." instance=ExtResource("2_tajp0")]
+
+[node name="BodyShape" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_2a8uh")

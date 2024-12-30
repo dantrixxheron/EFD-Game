@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://8c657owt4d1a"]
+
+[ext_resource type="Texture2D" uid="uid://bwxt88evyxp1g" path="res://Art/Assets/Sheet/Palanca.png" id="1_5mi2o"]
+[ext_resource type="Script" path="res://scripts/characters/palanca.gd" id="1_cqe4u"]
+
+[sub_resource type="Animation" id="Animation_mwtwt"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rp5o5"]
+_data = {
+"default": SubResource("Animation_mwtwt")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbeqs"]
+size = Vector2(16, 10)
+
+[node name="palanca" type="Node2D"]
+script = ExtResource("1_cqe4u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_5mi2o")
+hframes = 3
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Art/Assets/Sheet",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Art/Assets/Asprites/Palanca.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "5683be4c49e57b8c28a584d6248cb49d"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rp5o5")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_qbeqs")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

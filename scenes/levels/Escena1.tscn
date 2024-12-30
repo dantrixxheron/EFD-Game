@@ -1,0 +1,84 @@
+[gd_scene load_steps=15 format=3 uid="uid://bepx6kgprog8v"]
+
+[ext_resource type="Script" path="res://scripts/levels/Escena1.gd" id="1_dsdb8"]
+[ext_resource type="PackedScene" uid="uid://c8f8v752na7r7" path="res://scenes/control/info_game.tscn" id="2_8n8ns"]
+[ext_resource type="PackedScene" uid="uid://cjstymikjdn8k" path="res://scenes/backgrounds/backgroundtilset.tscn" id="3_6ine0"]
+[ext_resource type="PackedScene" uid="uid://dwymrskrjof48" path="res://scenes/characters/portal.tscn" id="4_1711d"]
+[ext_resource type="PackedScene" uid="uid://8c657owt4d1a" path="res://scenes/characters/palanca.tscn" id="5_e4o3v"]
+[ext_resource type="PackedScene" uid="uid://d13wrelnnvc0l" path="res://scenes/backgrounds/level0.1.tscn" id="6_hcewh"]
+[ext_resource type="PackedScene" uid="uid://cmk6vnhm5xsag" path="res://scenes/characters/tunnel.tscn" id="7_20hgg"]
+[ext_resource type="PackedScene" uid="uid://dmbbt85a1usuw" path="res://scenes/characters/player_1.tscn" id="8_ruef8"]
+[ext_resource type="PackedScene" uid="uid://c4upamt70y32a" path="res://scenes/characters/player_2.tscn" id="9_me5nt"]
+[ext_resource type="AudioStream" uid="uid://bqx52xvrs7m1e" path="res://Art/sounds/soundtrack.mp3" id="10_q5nss"]
+[ext_resource type="PackedScene" uid="uid://d1i5hhecp0k8k" path="res://scenes/characters/stalactite.tscn" id="11_0dbx4"]
+
+[sub_resource type="GDScript" id="GDScript_seym5"]
+script/source = "extends Area2D
+"
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kvwli"]
+a = Vector2(2.5, 0)
+b = Vector2(0, 411.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekb2q"]
+size = Vector2(966.875, 20)
+
+[node name="Escena1" type="Node2D"]
+position = Vector2(4, 6)
+scale = Vector2(2, 2)
+script = ExtResource("1_dsdb8")
+
+[node name="infoGame" parent="." instance=ExtResource("2_8n8ns")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(286, 159)
+scale = Vector2(3, 3)
+
+[node name="TileMap2" parent="." instance=ExtResource("3_6ine0")]
+position = Vector2(12.5, 120)
+
+[node name="Portal" parent="." instance=ExtResource("4_1711d")]
+position = Vector2(522.5, 183)
+scale = Vector2(0.999998, 1)
+
+[node name="Borde" type="Area2D" parent="."]
+position = Vector2(287.5, 158.5)
+script = SubResource("GDScript_seym5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borde"]
+position = Vector2(-286, -162.5)
+shape = SubResource("SegmentShape2D_kvwli")
+
+[node name="palanca" parent="." instance=ExtResource("5_e4o3v")]
+position = Vector2(191, 217)
+
+[node name="TileMap" parent="." instance=ExtResource("6_hcewh")]
+position = Vector2(0, 3)
+
+[node name="tunnel" parent="TileMap" instance=ExtResource("7_20hgg")]
+position = Vector2(376, 120.5)
+
+[node name="Player1" parent="TileMap" instance=ExtResource("8_ruef8")]
+position = Vector2(73.5, 219)
+scale = Vector2(0.999999, 0.999999)
+
+[node name="Player2" parent="TileMap" instance=ExtResource("9_me5nt")]
+position = Vector2(411, 94)
+scale = Vector2(0.999999, 0.999999)
+
+[node name="fallDown" type="Area2D" parent="."]
+position = Vector2(286, 158)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="fallDown"]
+position = Vector2(-17.5625, 190.5)
+shape = SubResource("RectangleShape2D_ekb2q")
+
+[node name="sountrackGame" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("10_q5nss")
+bus = &"music"
+
+[node name="stalactite" parent="." instance=ExtResource("11_0dbx4")]
+position = Vector2(448.5, 226.5)
+
+[connection signal="body_entered" from="fallDown" to="." method="_on_fall_down_body_entered"]

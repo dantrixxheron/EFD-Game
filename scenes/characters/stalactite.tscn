@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1i5hhecp0k8k"]
+
+[ext_resource type="Texture2D" uid="uid://c1iwgxq5wtxis" path="res://Art/Assets/Sheet/stalactite-Sheet.png" id="1_n580t"]
+[ext_resource type="Script" path="res://scripts/characters/stalactite.gd" id="1_xfg3n"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_81d0g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbexs"]
+size = Vector2(10, 6.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ng8t4"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wykx0"]
+size = Vector2(24, 9)
+
+[node name="stalactite" type="Node2D" groups=["damage"]]
+script = ExtResource("1_xfg3n")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_81d0g")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1.875)
+shape = SubResource("RectangleShape2D_sbexs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_ng8t4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_wykx0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_n580t")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Art/Assets/Sheet",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Art/Assets/Sheet/stalactite-Sheet.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "de4b7d4408adb6b4702d304c2ea3ba8d"

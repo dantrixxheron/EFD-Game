@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://be52o5fkblxgn"
+path="res://.godot/imported/SamSprite.aseprite-d49eeb7f8b20a387970b2eecec088977.res"
+
+[deps]
+
+source_file="res://Art/Player2/SamSprite.aseprite"
+dest_files=["res://.godot/imported/SamSprite.aseprite-d49eeb7f8b20a387970b2eecec088977.res"]
+
+[params]
+
