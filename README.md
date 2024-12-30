@@ -1,1 +1,2 @@
-"# EFD-Game" 
+# Escape from Derinkuyu - Godot Game
+Escape from Derinkuyu is a 2D puzzle-platformer game where players control two FBI agents trapped in an ancient underground city. Each character possesses unique abilities, requiring teamwork to solve challenges, navigate multiple levels, and escape. The game blends strategy and platforming mechanics, with features like item crafting and interactive environments, delivering an engaging and dynamic experience.
